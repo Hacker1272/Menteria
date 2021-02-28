@@ -38,18 +38,15 @@ public class SignInActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
-        if(auth.getCurrentUser()!=null)
-        {
-            HeadToDashboard();
-        }
+
         dialog = new ProgressDialog(this);
         dialog.setMessage("Please wait...");
         dialog.setCancelable(false);
 
-//        Get the users email and password
-//        emaiolId = binding.emailBox.getText().toString();
-//        password = binding.passwordBox.getText().toString();
-//        repassword = binding.repasswordBox.getText().toString();
+        //Get the users email and password
+        emailId = binding.emailBox.getText().toString();
+        password = binding.passwordBox.getText().toString();
+        repassword = binding.repasswordBox.getText().toString();
 
 
         binding.signupbtn.setOnClickListener(new View.OnClickListener() {
@@ -58,11 +55,11 @@ public class SignInActivity extends AppCompatActivity {
                 password.trim();
                 repassword.trim();
 
-//                if(!password.equals(repassword))
-//                {
-//                    binding.repasswordBox.setError("Password do not match");
-//                    return;
-//                }
+                if(!password.equals(repassword))
+                {
+                    binding.repasswordBox.setError("Password do not match");
+                    return;
+                }
 
                 dialog.show();
                 auth.createUserWithEmailAndPassword(emailId, password)
@@ -86,11 +83,6 @@ public class SignInActivity extends AppCompatActivity {
 
     }
 
-    private void HeadToDashboard()
-    {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
-    }
+
 
 }

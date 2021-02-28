@@ -98,8 +98,6 @@
         android:textColor="@color/Text_color"
         android:background="@drawable/button_rounded" />
 
-
-
 </LinearLayout>
 
 
