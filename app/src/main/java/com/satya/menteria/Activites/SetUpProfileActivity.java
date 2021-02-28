@@ -55,20 +55,24 @@ public class SetUpProfileActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         storage = FirebaseStorage.getInstance();
 
-        binding.profileImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                intent.setType("images/*");
-                startActivityForResult(intent, IMAGE_SELECTOR_CODE);;
-            }
-        });
+//        binding.profileImage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                Intent intent = new Intent();
+//                intent.setAction(Intent.ACTION_GET_CONTENT);
+//                intent.setType("images/*");
+//                startActivityForResult(intent, IMAGE_SELECTOR_CODE);;
+//            }
+//        });
 
         binding.setUpProfilebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                codeforcesRating = binding.codeforcesRatingBox.getText().toString();
+                codeforcesHandle = binding.codeforcesHandleBox.getText().toString();
+                username = binding.usernameBox.getText().toString();
+
                 if(!ValidateFeilds()) return;
 
                 dialog.show();
@@ -78,24 +82,24 @@ public class SetUpProfileActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == IMAGE_SELECTOR_CODE)
-        {
-            if(data!=null)
-            {
-                if(data.getData()!=null)
-                {
-                    selectedImageUri = data.getData();
-                    Glide.with(this).load(selectedImageUri)
-                            .placeholder(R.drawable.ic_baseline_account_circle_100)
-                            .into(binding.profileImage);
-                    binding.profileImage.setImageURI(selectedImageUri);
-                }
-            }
-        }
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if(requestCode == IMAGE_SELECTOR_CODE)
+//        {
+//            if(data!=null)
+//            {
+//                if(data.getData()!=null)
+//                {
+//                    selectedImageUri = data.getData();
+//                    Glide.with(this).load(selectedImageUri)
+//                            .placeholder(R.drawable.ic_baseline_account_circle_100)
+//                            .into(binding.profileImage);
+//                    binding.profileImage.setImageURI(selectedImageUri);
+//                }
+//            }
+//        }
+//    }
 
     private boolean ValidateFeilds() {
 
@@ -104,25 +108,25 @@ public class SetUpProfileActivity extends AppCompatActivity {
         codeforcesHandle = codeforcesHandle.trim();
         codeforcesRating = codeforcesRating.trim();
 
-//        if(!DecideUserLevelPool())
-//        {
-//            binding.codeforcesHandleBox.setError("Invalid Rating");
-//            return false;
-//        }
-//        if(username.isEmpty())
-//        {
-//            binding.usernameBox.setError(error);
-//        }
-//        if(codeforcesHandle.isEmpty())
-//        {
-//            binding.codeforcesHandleBox.setError(error);
-//            return false;
-//        }
-//        if(codeforcesRating.isEmpty() || !DecideUserLevelPool())
-//        {
-//            binding.codeforcesRatingBox.setError(error);
-//            return false;
-//        }
+        if(!DecideUserLevelPool())
+        {
+            binding.codeforcesHandleBox.setError("Invalid Rating");
+            return false;
+        }
+        if(username.isEmpty())
+        {
+            binding.usernameBox.setError(error);
+        }
+        if(codeforcesHandle.isEmpty())
+        {
+            binding.codeforcesHandleBox.setError(error);
+            return false;
+        }
+        if(codeforcesRating.isEmpty() || !DecideUserLevelPool())
+        {
+            binding.codeforcesRatingBox.setError(error);
+            return false;
+        }
         return true;
     }
 

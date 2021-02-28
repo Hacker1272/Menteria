@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Menteria</string>
+    <string name="e_mail">E-mail</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="codeforce_rating">Codeforce Rating</string>
+    <string name="codeforce_username">Codeforce Username</string>
+    <string name="codeforce_id">Codeforce ID</string>
+    <string name="mentor">Mentor</string>
 </resources>

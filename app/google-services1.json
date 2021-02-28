@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "16676848259",
+    "project_id": "drowsy-alert",
+    "storage_bucket": "drowsy-alert.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:16676848259:android:f7c79633c95fd98e5491b6",
+        "android_client_info": {
+          "package_name": "com.dragosholban.androidfacedetection"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "16676848259-f2chlpcede8m7ktgptn4hih3s9r75js4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAL0jkXqunronzbFdsE7ZWY7B7L2zNsLik"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "16676848259-f2chlpcede8m7ktgptn4hih3s9r75js4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

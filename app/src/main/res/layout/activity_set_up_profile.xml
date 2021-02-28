@@ -1,29 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/Background"
+    android:orientation="vertical"
+    android:padding="30dp"
     tools:context=".Activites.SetUpProfileActivity">
 
-    <ImageView
-        android:id="@+id/profileImage"
-        android:layout_width="wrap_content"
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="@+id/setUpProfilebtn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_marginTop="7dp"
+        android:textColorHint="@color/colorAccent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/codeforcesHandleBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Full Name"
+            android:ems="10"
+            android:inputType="text"
+            android:textSize="22sp"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/codeforce_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_marginTop="7dp"
+        android:textColorHint="@color/Text_color">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/usernameBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/codeforce_id"
+            android:ems="10"
+            android:inputType="text"
+            android:textSize="22sp"
+
+
+
+            />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_marginTop="7dp"
+        android:textColorHint="@color/Text_color"
+
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/codeforcesRatingBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/codeforce_username"
+            android:ems="10"
+            android:inputType="text"
+            android:textSize="22sp"
+
+
+
+            />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+
+
 
     <Button
         android:id="@+id/setUpProfilebtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
-        android:layout_marginLeft="156dp"
-        android:layout_marginBottom="683dp"
-        android:text="Update Profile"
-        app:layout_constraintTop_toTopOf="@+id/profileImage"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="40dp"
+        android:text="Register"
+        android:textSize="22sp"
+        android:textColor="@color/Text_color"
+        android:background="@drawable/button_rounded" />
+
+
+
+</LinearLayout>
+
+
