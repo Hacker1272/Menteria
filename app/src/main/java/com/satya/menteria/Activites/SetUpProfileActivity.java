@@ -110,15 +110,10 @@ public class SetUpProfileActivity extends AppCompatActivity {
         username = username.trim();
         codeforcesHandle = codeforcesHandle.trim();
         codeforcesRating = codeforcesRating.trim();
-
-        if(!DecideUserLevelPool())
-        {
-            binding.codeforcesHandleBox.setError("Invalid Rating");
-            return false;
-        }
         if(username.isEmpty())
         {
             binding.usernameBox.setError(error);
+            return false;
         }
         if(codeforcesHandle.isEmpty())
         {
@@ -128,6 +123,11 @@ public class SetUpProfileActivity extends AppCompatActivity {
         if(codeforcesRating.isEmpty() || !DecideUserLevelPool())
         {
             binding.codeforcesRatingBox.setError(error);
+            return false;
+        }
+        if(!DecideUserLevelPool())
+        {
+            binding.codeforcesRatingBox.setError("Invalid Rating");
             return false;
         }
         return true;

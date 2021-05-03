@@ -1,103 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Background"
+    tools:context=".Activites.SetUpProfileActivity"
     android:orientation="vertical"
-    android:padding="30dp"
-    tools:context=".Activites.SetUpProfileActivity">
+    android:background="@drawable/app_background">
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/login" />
+
+    <EditText
+        android:id="@+id/usernameBox"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:layout_marginTop="7dp"
-        android:textColorHint="@color/colorAccent">
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/edit_text_background"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="@string/username"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:paddingLeft="5dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/codeforcesHandleBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Full Name"
-            android:ems="10"
-            android:inputType="text"
-            android:textSize="22sp"
-            />
-    </com.google.android.material.textfield.TextInputLayout>
+    <EditText
+        android:id="@+id/codeforcesHandleBox"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/edit_text_background"
+        android:drawableLeft="@drawable/ic_baseline_lock_24"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="@string/codeforceshandle"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:paddingLeft="5dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usernameBox" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/codeforce_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:layout_marginTop="7dp"
-        android:textColorHint="@color/Text_color">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/usernameBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/codeforce_id"
-            android:ems="10"
-            android:inputType="text"
-            android:textSize="22sp"
-
-
-
-            />
-
-
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:layout_marginTop="7dp"
-        android:textColorHint="@color/Text_color"
-
-        >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/codeforcesRatingBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/codeforce_username"
-            android:ems="10"
-            android:inputType="text"
-            android:textSize="22sp"
-
-
-
-            />
-
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-
-
-
-
-
+    <EditText
+        android:id="@+id/codeforcesRatingBox"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/edit_text_background"
+        android:drawableLeft="@drawable/ic_baseline_lock_24"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="@string/codeforcesrating"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:paddingLeft="5dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/codeforcesHandleBox" />
 
     <Button
         android:id="@+id/setUpProfilebtn"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="40dp"
-        android:text="Register"
-        android:textSize="22sp"
-        android:textColor="@color/Text_color"
-        android:background="@drawable/button_rounded" />
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:background="@drawable/edit_text_background"
+        android:text="@string/setupprofile"
+        app:backgroundTint="#0664B5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/codeforcesRatingBox" />
 
-</LinearLayout>
-
-
+</androidx.constraintlayout.widget.ConstraintLayout>

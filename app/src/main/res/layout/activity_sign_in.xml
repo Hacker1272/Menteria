@@ -1,102 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".Activites.SignInActivity"
     android:orientation="vertical"
-    android:padding="30dp"
-    android:background="@color/Background"
-    tools:context=".Activites.SignInActivity">
+    android:background="@drawable/app_background">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/login" />
+
+    <EditText
+        android:id="@+id/emailBox"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/edit_text_background"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:paddingLeft="5dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:layout_marginTop="7dp"
-        android:textColorHint="@color/Text_color"
-
-        >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/emailBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email"
-            android:ems="10"
-            android:inputType="text"
-            android:textSize="22sp"
-
-
-            />
-
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/passwordBox"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/edit_text_background"
+        android:drawableLeft="@drawable/ic_baseline_lock_24"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:paddingLeft="5dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailBox" />
 
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:layout_marginTop="7dp"
-        android:textColorHint="@color/Text_color"
+    <EditText
+        android:id="@+id/repasswordBox"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/edit_text_background"
+        android:drawableLeft="@drawable/ic_baseline_lock_24"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="@string/repassword"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:paddingLeft="5dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordBox" />
 
-        >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/passwordBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password"
-            android:ems="10"
-            android:inputType="text"
-            android:textSize="22sp"
-
-
-            />
-
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:layout_marginTop="7dp"
-        android:textColorHint="@color/Text_color">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/repasswordBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Confirm Password"
-            android:ems="10"
-            android:inputType="textPassword"
-            android:textSize="22sp"
-            />
-
-
-
-    </com.google.android.material.textfield.TextInputLayout>
-
+    <EditText
+        android:id="@+id/codeforcesHandleBox"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/edit_text_background"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="@string/codeforceshandle"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:paddingLeft="5dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/repasswordBox" />
 
     <Button
         android:id="@+id/signupbtn"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="40dp"
-        android:text="Register"
-        android:textSize="22sp"
-        android:textColor="@color/Text_color"
-        android:background="@drawable/button_rounded" />
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:background="@drawable/edit_text_background"
+        android:text="@string/register"
+        app:backgroundTint="#0664B5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/codeforcesHandleBox" />
 
+    <TextView
+        android:id="@+id/loginBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/logintext"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signupbtn" />
 
-
-
-
-</LinearLayout>
-
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -36,6 +36,8 @@ public class SignInActivity extends AppCompatActivity {
         binding = com.satya.menteria.databinding.ActivitySignInBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        getSupportActionBar().hide();
+
         auth = FirebaseAuth.getInstance();
 
 
@@ -55,14 +57,14 @@ public class SignInActivity extends AppCompatActivity {
                 repassword = binding.repasswordBox.getText().toString();
                 password.trim();
                 repassword.trim();
-                if(password.isEmpty())
-                {
-                    binding.passwordBox.setError("This feild can not be left blank");
-                    return;
-                }
                 if(emailId.isEmpty())
                 {
                     binding.emailBox.setError("This feild can not be left blank");
+                    return;
+                }
+                if(password.isEmpty())
+                {
+                    binding.passwordBox.setError("This feild can not be left blank");
                     return;
                 }
                 if(repassword.isEmpty())
@@ -94,6 +96,14 @@ public class SignInActivity extends AppCompatActivity {
                                 }
                             }
                         });
+            }
+        });
+
+        binding.loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SignInActivity.this, LoginActivity.class);
+                startActivity(intent);
             }
         });
 
