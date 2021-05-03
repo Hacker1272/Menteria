@@ -9,6 +9,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -58,6 +59,8 @@ public class ChatActivity extends AppCompatActivity {
         binding = ActivityChatBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        database = FirebaseDatabase.getInstance();
+        storage = FirebaseStorage.getInstance();
 
         dialog = new ProgressDialog(this);
         dialog.setMessage("Sending Image...");
@@ -65,12 +68,16 @@ public class ChatActivity extends AppCompatActivity {
 
         receiverUid = getIntent().getStringExtra("uid");
 
+
         database.getReference().child("users").child(receiverUid)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String receiverName = snapshot.getValue(User.class).getUsername();
-                        getSupportActionBar().setTitle(receiverName);
+                        if(snapshot.exists())
+                        {
+                            String receiverName = snapshot.getValue(User.class).getUsername();
+                            getSupportActionBar().setTitle(receiverName);
+                        }
                     }
 
                     @Override
@@ -102,8 +109,6 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
 
-        database = FirebaseDatabase.getInstance();
-        storage = FirebaseStorage.getInstance();
 
         database.getReference().child("chats").child(senderRoom).child("messages").addValueEventListener(new ValueEventListener() {
             @Override

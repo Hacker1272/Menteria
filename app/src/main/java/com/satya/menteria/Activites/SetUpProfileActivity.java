@@ -16,7 +16,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -161,7 +164,7 @@ public class SetUpProfileActivity extends AppCompatActivity {
                                 User user = new User(username, codeforcesHandle, codeforcesRating, levelPool, uri.toString());
                                 database.getReference()
                                         .child("users")
-                                        .push()
+                                        .child(auth.getUid())
                                         .setValue(user)
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
@@ -181,7 +184,7 @@ public class SetUpProfileActivity extends AppCompatActivity {
             User user = new User(username, codeforcesHandle, codeforcesRating, levelPool, "No Image");
             database.getReference()
                     .child("users")
-                    .push()
+                    .child(auth.getUid())
                     .setValue(user)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
@@ -197,25 +200,19 @@ public class SetUpProfileActivity extends AppCompatActivity {
         int rating = Integer.parseInt(codeforcesRating);
         if(rating<0) return false;
         rating/=100;
-        switch(rating)
-        {
-            case 40: return false;
-            case 30: levelPool = "level_1";
-                return true;
-            case 20: levelPool = "level_2";
-                return true;
-            case 15: levelPool = "level_3";
-                return true;
-            case 10: levelPool = "level_4";
-                return true;
-            default: levelPool = "level_5";
-                return true;
-        }
+        if(rating>=40) return false;
+        else if(rating>=30) levelPool = "level_1";
+        else if(rating>=20) levelPool = "level_2";
+        else if(rating>=15) levelPool = "level_3";
+        else if(rating>=10) levelPool = "level_4";
+        else levelPool = "level_5";
+
+        return true;
     }
 
     private void HeadToDashboard()
     {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(SetUpProfileActivity.this, MainActivity.class);
         startActivity(intent);
         finish();
     }

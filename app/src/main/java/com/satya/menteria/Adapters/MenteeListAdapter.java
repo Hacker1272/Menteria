@@ -2,9 +2,11 @@ package com.satya.menteria.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.HttpAuthHandler;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,13 +22,14 @@ import com.satya.menteria.databinding.ItemMenteeBinding;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MenteeListAdapter extends RecyclerView.Adapter<MenteeListAdapter.viewHolder>{
 
-    private ArrayList<String> menteeList;
+    private ArrayList<Pair<User,String>> menteeList;
     Context context;
 
-    public MenteeListAdapter(Context context, ArrayList<String> menteeList)
+    public MenteeListAdapter(Context context, ArrayList<Pair<User,String>> menteeList)
     {
         this.context = context;
         this.menteeList = menteeList;
@@ -42,22 +45,11 @@ public class MenteeListAdapter extends RecyclerView.Adapter<MenteeListAdapter.vi
 
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
-        String menteeId = menteeList.get(position);
-        FirebaseDatabase.getInstance().getReference()
-                .child("users")
-                .child(menteeId)
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        User user = snapshot.getValue(User.class);
-                        holder.binding.menteeName.setText(user.getUsername());
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
+        Pair<User,String> menteeInfo = menteeList.get(position);
+        String menteeId = menteeInfo.second;
+        User mentee = menteeInfo.first;
+        holder.binding.menteeName.setText(mentee.getUsername());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +63,7 @@ public class MenteeListAdapter extends RecyclerView.Adapter<MenteeListAdapter.vi
 
     @Override
     public int getItemCount() {
-        return 0;
+        return menteeList.size();
     }
 
     public class viewHolder extends RecyclerView.ViewHolder{
@@ -81,4 +73,5 @@ public class MenteeListAdapter extends RecyclerView.Adapter<MenteeListAdapter.vi
             binding = ItemMenteeBinding.bind(itemView);
         }
     }
+
 }

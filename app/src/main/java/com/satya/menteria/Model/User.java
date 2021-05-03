@@ -1,15 +1,18 @@
 package com.satya.menteria.Model;
 
-import java.util.ArrayList;
+import com.satya.menteria.R;
 
-public class User {
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class User implements Serializable {
     private String username;
     private String codeforcesHandle;
     private String codeforcesRating;
     private String levelPool;
     private String imageUrl;
     private String mentor = "NO_MENTOR_ASSIGNED";
-    private ArrayList<String> mentees;
 
 
     public User(){}
@@ -70,11 +73,4 @@ public class User {
         this.mentor = mentor;
     }
 
-    public ArrayList<String> getMentees() {
-        return mentees;
-    }
-
-    public void setMentees(ArrayList<String> mentees) {
-        this.mentees = mentees;
-    }
 }

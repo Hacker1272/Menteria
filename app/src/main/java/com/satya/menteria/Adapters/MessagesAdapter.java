@@ -99,8 +99,6 @@ public class MessagesAdapter extends RecyclerView.Adapter {
             else viewHolder.binding.message.setText(message.getMessage());
             viewHolder.binding.messageTime.setText(new SimpleDateFormat("HH:mm").format(message.getTimestamp()));
 
-
-
         }
     }
 

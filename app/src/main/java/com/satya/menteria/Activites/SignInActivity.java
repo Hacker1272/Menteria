@@ -44,17 +44,33 @@ public class SignInActivity extends AppCompatActivity {
         dialog.setCancelable(false);
 
         //Get the users email and password
-        emailId = binding.emailBox.getText().toString();
-        password = binding.passwordBox.getText().toString();
-        repassword = binding.repasswordBox.getText().toString();
+
 
 
         binding.signupbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                emailId = binding.emailBox.getText().toString();
+                password = binding.passwordBox.getText().toString();
+                repassword = binding.repasswordBox.getText().toString();
                 password.trim();
                 repassword.trim();
+                if(password.isEmpty())
+                {
+                    binding.passwordBox.setError("This feild can not be left blank");
+                    return;
+                }
+                if(emailId.isEmpty())
+                {
+                    binding.emailBox.setError("This feild can not be left blank");
+                    return;
+                }
+                if(repassword.isEmpty())
 
+                {
+                    binding.repasswordBox.setError("This feild can not be left blank");
+                    return;
+                }
                 if(!password.equals(repassword))
                 {
                     binding.repasswordBox.setError("Password do not match");

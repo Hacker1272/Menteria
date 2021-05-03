@@ -13,6 +13,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.satya.menteria.Model.User;
 import com.satya.menteria.R;
 import com.satya.menteria.databinding.ActivityLoginBinding;
 
@@ -24,25 +29,28 @@ public class LoginActivity extends AppCompatActivity {
     String password;
     FirebaseAuth auth;
     ProgressDialog dialog;
-
+    FirebaseDatabase database;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        getSupportActionBar().hide();
+
         auth = FirebaseAuth.getInstance();
-        email = binding.emailBox.getText().toString();
-        password = binding.passwordBox.getText().toString();
+        database = FirebaseDatabase.getInstance();
 
         dialog = new ProgressDialog(this);
         dialog.setMessage("Verifying...");
         dialog.setCancelable(false);
 
-        binding.loginbtn.setOnClickListener(new View.OnClickListener() {
+        binding.loginBtn.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
+                email = binding.emailBox.getText().toString();
+                password = binding.passwordBox.getText().toString();
                 email = email.trim();
                 password = password.trim();
                 if(email.isEmpty())
@@ -77,5 +85,14 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        binding.registerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this,SignInActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
+
 }
